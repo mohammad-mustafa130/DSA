@@ -29,23 +29,17 @@ def mergeSort(a, si, li):
 		mergeSort(a, mid + 1, li)
 		merge(a, si, mid, li)
 
-def printArray(a):
-	for i in a:
-		print(i, end = " ")
-	print()
-
 def main():
 	a = [7,4,5,3,2,8,6,1]
-	print("Unsorted Array: ")
-	printArray(a)
+	print("Unsorted List: ")
+	print(a)
 
 	si = 0
 	li = len(a) - 1
 	mergeSort(a, si, li)
 
-	print("Sorted Array: ")
-	printArray(a)
-
+	print("Sorted List: ")
+	print(a)
 
 if __name__ == "__main__":
 	main()

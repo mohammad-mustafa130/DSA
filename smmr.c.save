@@ -1,0 +1,43 @@
+#include<stdio.h>
+void SMMR(int i, int j, int a[j+1][j+1], int b[j+1][j+1], int c[j+1][j+1]){
+	if((j-i) ==  0){
+		c[i][j] = a[i][j] * b[i][j];
+	}else{
+		c[i][j] = SMMR(i, j/2, a, b, c) + SMMR((i/2)+1, j, a, b, c);
+		c[i][j+1] = SMMR(i, (j/2)+1, a, b, c) + SMMR((i/2)+1, (j/2)+1, a, b, c);
+		c[i+1][j] = SMMR((i+1)/2, (j/2), a, b, c) + SMMR((i+1)/2, (j/2)+1, a, b, c);
+		c[i+1][j+1] = SMMR((i+1)/2, (j/2)+1, a, b, c) + SMMR((i+1)/2, j, a, b, c);
+	}
+}
+void printArray(int row, int col, int a[row][col]){
+	int i,j;
+	for(i=0; i<row; i++){
+		for(j=0; j<col; j++){
+			printf("%d\t", a[i][j]);
+		}
+		printf("\n");
+	}
+}
+int main(int argc, char** argv){
+	int td[3][3] = {{2,5,8},{1,9,4},{3,6,7}};
+	int sd[3][3] = {{4,6,1},{5,0,2},{9,6,3}};
+	int result[3][3];
+
+	int row = sizeof(td)/sizeof(td[0]);
+	int col = sizeof(td[0])/sizeof(td[0][0]);
+
+	printf("First Matrix: \n");
+	printArray(row, col, td);
+
+	printf("Second Matrix: \n");
+	printArray(row, col, sd);
+
+	int i = 0;
+	int j = 0;
+	SMMR(i, j, td, sd, result);
+
+	printf("Matrix after multiplication: \n");
+	printArray(row, col, result);
+
+	return 0;
+}
