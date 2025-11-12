@@ -7,17 +7,12 @@ def insertionSort(li, length):
 			i = i - 1
 		li[i + 1] = key
 
-def main():
-	li = [4, 7, 3, 8, 6, 9, 2, 1]
-	length = len(li)
+li = [4, 7, 3, 8, 6, 9, 2, 1]
 
-	print("Unsorted Array: :")
-	print(li)
+print("Original list: ")
+print(li)
 
-	insertionSort(li, length)
+insertionSort(li, len(li))
 
-	print("Sorted Array: ")
-	print(li)
-
-if __name__ == "__main__":
-	main()
+print("Sorted list: ")
+print(li)
