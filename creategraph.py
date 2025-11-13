@@ -15,7 +15,7 @@ class Graph:
 			self.graph[i] = temp
 			i = i + 1
 		return self.graph
-
-obj = Graph(5)
-graph = obj.create_graph()
-print (graph)
+if __name__ == "__main__":
+	obj = Graph(5)
+	graph = obj.create_graph()
+	print (graph)
