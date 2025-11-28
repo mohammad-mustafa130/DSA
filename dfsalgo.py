@@ -12,7 +12,7 @@ class GraphAlgos:
 			if v not in traversed:
 				traversed.append(v)
 			for element in graph[v]:
-				if element not in traversed:
+				if element not in traversed and element not in stack:
 					stack.append(element) 
 		for ve in traversed:
 			print (ve, end = ' ')
